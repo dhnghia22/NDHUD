@@ -41,7 +41,12 @@ open class NDHUD {
         transition.duration = 0.2
         transition.type = kCATransitionFade
         window.layer.add(transition, forKey: nil)
+//        HUD.shared.hudView.transform =  CGAffineTransformScale(CGAffineTransformIdentity, 0.001, 0.001)
+        HUD.shared.hudView.transform = CGAffineTransform(scaleX: 1.5, y: 0.001)
         window.addSubview(HUD.shared.hudView)
+        UIView.animate(withDuration: 3.0) {
+            HUD.shared.hudView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
         HUD.shared.hudView.startAnimation()
     }
     

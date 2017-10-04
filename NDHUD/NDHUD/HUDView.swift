@@ -10,6 +10,8 @@ import UIKit
 
 class HUDView: UIView {
     @IBOutlet var contentView: UIView!
+    
+    @IBOutlet weak var contentHudView: UIView!
     var HUDColor: UIColor = UIColor.black
     var HUDLineWidth: CGFloat = 5.0
     var HUDPath = UIBezierPath()
@@ -50,6 +52,7 @@ class HUDView: UIView {
         animationStrokeStart.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         animationStrokeStart.fillMode = kCAFillModeBackwards
         animationStrokeStart.isRemovedOnCompletion = false
+        
         let group = CAAnimationGroup()
         group.animations = [animationStrokeEnd, animationStrokeStart]
         group.duration = 1.75
@@ -61,7 +64,7 @@ class HUDView: UIView {
         HUDPath = UIBezierPath()
         /* draw code goes here*/
         HUDPath.addArc( withCenter: self.center,
-                           radius: 50.0,
+                           radius: 20.0,
                            startAngle: 0,
                            endAngle: CGFloat( 2 * Double.pi ),
                            clockwise: true )

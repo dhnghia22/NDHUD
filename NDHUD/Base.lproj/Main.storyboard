@@ -24,8 +24,13 @@
                                     <action selector="showHUD" destination="BYZ-38-t0r" eventType="touchUpInside" id="lxf-FX-GPM"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QmY-ck-eKN">
+                                <rect key="frame" x="55" y="146" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16799535399914645" green="1" blue="0.084655092685086419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.10645211490000001" green="0.73670762779999999" blue="0.60660296680000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ami-th-vph" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HSz-VI-JJC"/>
                             <constraint firstItem="Ami-th-vph" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Wh3-Sl-nUA"/>

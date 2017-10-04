@@ -14,13 +14,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NDHUD.color = UIColor.cyan
+        NDHUD.color = UIColor.red
+        NDHUD.lineWidth = 3.0
     }
     
     @IBAction func showHUD() {
         NDHUD.show()
         let now = DispatchTime.now()
-        DispatchQueue.main.asyncAfter(deadline: now + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: now + 5.0) {
             NDHUD.hide()
         }
     }
