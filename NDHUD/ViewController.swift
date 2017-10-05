@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NDHUD.color = UIColor.red
-        NDHUD.lineWidth = 2.0    
+        NDHUD.lineWidth = 2.0
     }
     
     @IBAction func showHUDNative() {

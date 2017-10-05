@@ -17,11 +17,23 @@ public enum HUDStyle {
 
 open class HUDView: UIView {
     @IBOutlet var contentView: UIView!
-    open var HUDColor: UIColor = UIColor.black
-    open var HUDLineWidth: CGFloat = 2.0
+    open var HUDColor: UIColor = UIColor.black {
+        didSet {
+            shapeLayer.strokeColor = HUDColor.cgColor
+        }
+    }
+    open var HUDLineWidth: CGFloat = 2.0  {
+        didSet {
+            shapeLayer.lineWidth = HUDLineWidth
+        }
+    }
     open var HUDPath = UIBezierPath()
     open var shapeLayer = CAShapeLayer()
-    open var HUDStyle: HUDStyle = .Flat
+    open var HUDStyle: HUDStyle = .Flat  {
+        didSet {
+            self.updatePath()
+        }
+    }
 
     
    // var indefiniteAnimatedLayer: CAShapeLayer()
