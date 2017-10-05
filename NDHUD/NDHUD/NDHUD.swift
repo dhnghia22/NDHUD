@@ -60,6 +60,9 @@ open class NDHUD {
     }
     
     open class func show(onViewController vc: UIViewController? = nil, styleHUD style: HUDStyle? = nil) {
+        if let style = style {
+            self.styleHUD = style
+        }
         if let vc = vc {
             HUD.shared.hudView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             HUD.shared.hudView.alpha = 0.0
@@ -97,8 +100,6 @@ open class NDHUD {
                 HUD.shared.hudView.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
             HUD.shared.hudView.startAnimation()
-            
-            
         }
     }
     
@@ -122,6 +123,7 @@ open class NDHUD {
             HUD.shared.hudView.stopAnimation()
             HUD.shared.hudView.removeFromSuperview()
             HUD.shared.backgroundView.removeFromSuperview()
+            HUD.shared.hudView.stopAnimation()
         }
     }
 }

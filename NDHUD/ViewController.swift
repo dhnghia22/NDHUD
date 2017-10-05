@@ -20,8 +20,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showHUDNative() {
-        NDHUD.styleHUD = .Native
-        NDHUD.show()
+        NDHUD.show(styleHUD: .Native)
         let now = DispatchTime.now()
         DispatchQueue.main.asyncAfter(deadline: now + 5.0) {
             NDHUD.hide()
@@ -29,8 +28,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showHUDFLat() {
-        NDHUD.styleHUD = .Flat
-        NDHUD.show()
+        NDHUD.show(styleHUD: .Flat)
         let now = DispatchTime.now()
         DispatchQueue.main.asyncAfter(deadline: now + 5.0) {
             NDHUD.hide()

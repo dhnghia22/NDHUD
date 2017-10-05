@@ -22,6 +22,9 @@ open class HUDView: UIView {
     open var HUDPath = UIBezierPath()
     open var shapeLayer = CAShapeLayer()
     open var HUDStyle: HUDStyle = .Flat
+
+    
+   // var indefiniteAnimatedLayer: CAShapeLayer()
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -178,12 +181,9 @@ open class HUDView: UIView {
             break
         }
     }
-    
-    open func stopAnimation() {
-        shapeLayer.removeAnimation(forKey: "groupLoadingNativeAnimation")
-        shapeLayer.removeAnimation(forKey: "groupLoadingFlatAnimation")
-        shapeLayer.mask?.removeAnimation(forKey: "flatAnimation")
-        
+
+    func stopAnimation() {
+        shapeLayer.removeAllAnimations()
     }
     
     func getHUDPath(style hudStyle: HUDStyle) -> UIBezierPath {
@@ -214,12 +214,5 @@ open class HUDView: UIView {
                         clockwise: true )
         return path
     }()
-    
-    
-    
-    
-    
-    
-    
 
 }
