@@ -204,7 +204,8 @@ open class HUDView: UIView {
     
     
     private lazy var flatHUDPath: UIBezierPath = {
-        let path  = UIBezierPath(arcCenter: self.center, radius: 24, startAngle: CGFloat(Double.pi * 3 / 2), endAngle: CGFloat(Double.pi * 3 / 2 +  Double.pi * 2), clockwise: true)
+        let radius = self.frame.width <= self.frame.height ? self.frame.width / 2 * 2 / 3 : self.frame.height / 2 * 2 / 3
+        let path  = UIBezierPath(arcCenter: self.center, radius: radius, startAngle: CGFloat(Double.pi * 3 / 2), endAngle: CGFloat(Double.pi * 3 / 2 +  Double.pi * 2), clockwise: true)
         return path
     }()
     
@@ -214,8 +215,9 @@ open class HUDView: UIView {
     private lazy var nativeHUDPath: UIBezierPath = {
         let path = UIBezierPath()
         let point = CGPoint(x: self.center.x, y: self.center.y )
+        let radius = self.frame.width <= self.frame.height ? self.frame.width / 2 * 2 / 3 : self.frame.height / 2 * 2 / 3
         path.addArc( withCenter: point,
-                        radius: 24.0,
+                        radius: radius,
                         startAngle: 0,
                         endAngle: CGFloat( 2 * Double.pi ),
                         clockwise: true )
