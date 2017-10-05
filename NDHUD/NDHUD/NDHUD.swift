@@ -100,8 +100,6 @@ open class NDHUD {
                 HUD.shared.hudView.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
             HUD.shared.hudView.startAnimation()
-            
-            
         }
     }
     
