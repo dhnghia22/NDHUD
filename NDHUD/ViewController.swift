@@ -15,10 +15,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NDHUD.color = UIColor.red
-        NDHUD.lineWidth = 3.0
+        NDHUD.lineWidth = 2.0
+    
     }
     
-    @IBAction func showHUD() {
+    @IBAction func showHUDNative() {
+        NDHUD.styleHUD = .Native
+        NDHUD.show()
+        let now = DispatchTime.now()
+        DispatchQueue.main.asyncAfter(deadline: now + 5.0) {
+            NDHUD.hide()
+        }
+    }
+    
+    @IBAction func showHUDFLat() {
+        NDHUD.styleHUD = .Flat
         NDHUD.show()
         let now = DispatchTime.now()
         DispatchQueue.main.asyncAfter(deadline: now + 5.0) {

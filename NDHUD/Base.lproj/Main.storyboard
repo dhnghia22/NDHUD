@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zbe-xC-LKd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="qw2-zq-TfK">
+            <objects>
+                <navigationController id="zbe-xC-LKd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XUu-fG-OJr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oPE-k8-4Rw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30M-Nx-YeU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1521" y="-507"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,22 +34,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-th-vph">
-                                <rect key="frame" x="146.5" y="328.5" width="82" height="30"/>
-                                <state key="normal" title="SHOW HUD"/>
+                                <rect key="frame" x="118.5" y="84" width="138" height="30"/>
+                                <state key="normal" title="SHOW HUD NATIVE"/>
                                 <connections>
-                                    <action selector="showHUD" destination="BYZ-38-t0r" eventType="touchUpInside" id="lxf-FX-GPM"/>
+                                    <action selector="showHUDNative" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZMQ-vF-jXe"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QmY-ck-eKN">
-                                <rect key="frame" x="55" y="146" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.16799535399914645" green="1" blue="0.084655092685086419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="if1-aZ-kq6">
+                                <rect key="frame" x="127" y="144" width="121" height="30"/>
+                                <state key="normal" title="SHOW HUD FLAT"/>
+                                <connections>
+                                    <action selector="showHUDFLat" destination="BYZ-38-t0r" eventType="touchUpInside" id="ICj-RC-R0C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ami-th-vph" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HSz-VI-JJC"/>
-                            <constraint firstItem="Ami-th-vph" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Wh3-Sl-nUA"/>
+                            <constraint firstItem="Ami-th-vph" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="MoH-y5-Kmy"/>
+                            <constraint firstItem="if1-aZ-kq6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lUW-zq-0vd"/>
+                            <constraint firstItem="if1-aZ-kq6" firstAttribute="top" secondItem="Ami-th-vph" secondAttribute="bottom" constant="30" id="ync-Kw-Y5j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -41,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-193" y="-380"/>
+            <point key="canvasLocation" x="-689" y="-508"/>
         </scene>
     </scenes>
 </document>

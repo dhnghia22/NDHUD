@@ -14,6 +14,7 @@
 		B7023B2C1F83EB2A002C2B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7023B2A1F83EB2A002C2B35 /* LaunchScreen.storyboard */; };
 		B7023B351F83F5E2002C2B35 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7023B341F83F5E2002C2B35 /* HUDView.swift */; };
 		B7023B371F83F60B002C2B35 /* HUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7023B361F83F60B002C2B35 /* HUDView.xib */; };
+		B73921331F85261A00E8E690 /* NDHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B73921321F8520C600E8E690 /* NDHUD.bundle */; };
 		B7BCD4B91F83FA1F009E5029 /* NDHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BCD4B81F83FA1F009E5029 /* NDHUD.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		B7023B2D1F83EB2A002C2B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7023B341F83F5E2002C2B35 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 		B7023B361F83F60B002C2B35 /* HUDView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HUDView.xib; sourceTree = "<group>"; };
+		B73921321F8520C600E8E690 /* NDHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NDHUD.bundle; sourceTree = "<group>"; };
 		B7BCD4B81F83FA1F009E5029 /* NDHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDHUD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 		B7023B331F83F5CA002C2B35 /* NDHUD */ = {
 			isa = PBXGroup;
 			children = (
+				B73921321F8520C600E8E690 /* NDHUD.bundle */,
 				B7023B341F83F5E2002C2B35 /* HUDView.swift */,
 				B7023B361F83F60B002C2B35 /* HUDView.xib */,
 				B7BCD4B81F83FA1F009E5029 /* NDHUD.swift */,
@@ -143,6 +146,7 @@
 				B7023B371F83F60B002C2B35 /* HUDView.xib in Resources */,
 				B7023B2C1F83EB2A002C2B35 /* LaunchScreen.storyboard in Resources */,
 				B7023B291F83EB2A002C2B35 /* Assets.xcassets in Resources */,
+				B73921331F85261A00E8E690 /* NDHUD.bundle in Resources */,
 				B7023B271F83EB2A002C2B35 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
