@@ -67,11 +67,13 @@ open class HUDView: UIView {
         animationStrokeStart.fillMode = kCAFillModeBackwards
         animationStrokeStart.isRemovedOnCompletion = false
         
-        let group = CAAnimationGroup()
-        group.animations = [animationStrokeEnd, animationStrokeStart]
-        group.duration = 1.75
-        group.repeatCount = .infinity
-        return group
+        let animationGroup = CAAnimationGroup()
+        animationGroup.duration = 1.75
+        animationGroup.repeatCount = .infinity
+        animationGroup.isRemovedOnCompletion = false
+        animationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animationGroup.animations = [animationStrokeStart, animationStrokeEnd]
+        return animationGroup
     }()
     
     
