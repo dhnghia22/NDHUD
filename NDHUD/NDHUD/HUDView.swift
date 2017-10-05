@@ -15,23 +15,20 @@ public enum HUDStyle {
 
 
 
-class HUDView: UIView {
+open class HUDView: UIView {
     @IBOutlet var contentView: UIView!
-    var HUDColor: UIColor = UIColor.black
-    var HUDLineWidth: CGFloat = 2.0
-    var HUDPath = UIBezierPath()
-    var shapeLayer = CAShapeLayer()
+    open var HUDColor: UIColor = UIColor.black
+    open var HUDLineWidth: CGFloat = 2.0
+    open var HUDPath = UIBezierPath()
+    open var shapeLayer = CAShapeLayer()
+    open var HUDStyle: HUDStyle = .Flat
     
-    var HUDStyle: HUDStyle = .Flat
-    
-   // var indefiniteAnimatedLayer: CAShapeLayer()
-    
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         customInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         customInit()
         
@@ -85,6 +82,22 @@ class HUDView: UIView {
         return animation
     }()
     
+    
+    let rotateAnimation: CABasicAnimation = {
+        let animationDuration = 2.0
+        let linearCurve = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.fromValue = 0
+        animation.toValue = Double.pi * 2
+        animation.duration = animationDuration
+        animation.timingFunction = linearCurve
+        animation.isRemovedOnCompletion = false
+        animation.repeatCount = .infinity
+        animation.fillMode = kCAFillModeForwards
+        animation.autoreverses = false
+        return animation
+    }()
+    
     let groupLoadingFlatAnimation: CAAnimationGroup = {
 
         let animationStrokeStart = CABasicAnimation(keyPath: "strokeStart")
@@ -119,12 +132,7 @@ class HUDView: UIView {
     }()
     
     func setupHUD() {
-        //self.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
-//        shapeLayer.removeFromSuperlayer()
-
-        
         let path = self.getHUDPath(style: self.HUDStyle)
-        
         shapeLayer.contentsScale = UIScreen.main.scale
         shapeLayer.frame = self.frame
         shapeLayer.path = path.cgPath
@@ -132,7 +140,6 @@ class HUDView: UIView {
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = HUDLineWidth
         shapeLayer.lineCap = kCALineCapRound
-        //_indefiniteAnimatedLayer.frame = CGRectMake(0.0f, 0.0f, arcCenter.x*2, arcCenter.y*2);
         self.updateMaskLayer()
         self.layer.addSublayer(shapeLayer)
         
@@ -160,20 +167,19 @@ class HUDView: UIView {
     }
     
     
-    func startAnimation() {
+    open func startAnimation() {
         switch self.HUDStyle {
         case .Native:
+            shapeLayer.add(rotateAnimation, forKey: "flatAnimation")
             shapeLayer.add(groupLoadingNativeAnimation, forKey: "groupLoadingNativeAnimation")
             break
         case .Flat:
             shapeLayer.mask?.add(flatAnimation, forKey: "flatAnimation")
-            //shapeLayer.add(groupLoadingFlatAnimation, forKey: "groupLoadingFlatAnimation")
             break
-        
         }
     }
     
-    func stopAnimation() {
+    open func stopAnimation() {
         shapeLayer.removeAnimation(forKey: "groupLoadingNativeAnimation")
         shapeLayer.removeAnimation(forKey: "groupLoadingFlatAnimation")
         shapeLayer.mask?.removeAnimation(forKey: "flatAnimation")
@@ -191,8 +197,8 @@ class HUDView: UIView {
     
     
     private lazy var flatHUDPath: UIBezierPath = {
-        let smoothedPath  = UIBezierPath(arcCenter: self.center, radius: 24, startAngle: CGFloat(Double.pi * 3 / 2), endAngle: CGFloat(Double.pi * 3 / 2 +  Double.pi * 2), clockwise: true)
-        return smoothedPath
+        let path  = UIBezierPath(arcCenter: self.center, radius: 24, startAngle: CGFloat(Double.pi * 3 / 2), endAngle: CGFloat(Double.pi * 3 / 2 +  Double.pi * 2), clockwise: true)
+        return path
     }()
     
     
@@ -200,14 +206,12 @@ class HUDView: UIView {
     
     private lazy var nativeHUDPath: UIBezierPath = {
         let path = UIBezierPath()
-        
         let point = CGPoint(x: self.center.x, y: self.center.y )
         path.addArc( withCenter: point,
                         radius: 24.0,
                         startAngle: 0,
                         endAngle: CGFloat( 2 * Double.pi ),
                         clockwise: true )
-        
         return path
     }()
     
