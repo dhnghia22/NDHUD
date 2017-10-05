@@ -22,7 +22,7 @@ class HUDView: UIView {
     var HUDPath = UIBezierPath()
     var shapeLayer = CAShapeLayer()
     
-    var HUDStyle: HUDStyle = .Flat
+    var HUDStyle: HUDStyle = .Native
     
    // var indefiniteAnimatedLayer: CAShapeLayer()
     
