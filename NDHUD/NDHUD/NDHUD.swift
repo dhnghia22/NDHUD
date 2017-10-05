@@ -64,8 +64,6 @@ open class NDHUD {
             self.styleHUD = style
         }
         if let vc = vc {
-            HUD.shared.hudView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            HUD.shared.hudView.alpha = 0.0
             if let navi = vc.navigationController {
                 self.addHUD(toview: navi.view)
             } else {
@@ -93,6 +91,9 @@ open class NDHUD {
             
             view.addSubview(HUD.shared.backgroundView)
             HUD.shared.backgroundView.addSubview(HUD.shared.hudView)
+            
+            HUD.shared.hudView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            HUD.shared.hudView.alpha = 0.0
             
             UIView.animate(withDuration: 0.2) {
                 HUD.shared.hudView.alpha = 1.0

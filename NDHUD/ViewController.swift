@@ -16,6 +16,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         NDHUD.color = UIColor.red
         NDHUD.lineWidth = 2.0
+        NDHUD.show(onViewController: self)
+        NDHUD.show(onViewController: self)
     
     }
     
