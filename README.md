@@ -3,11 +3,14 @@
 
 **NDHUD** is a loadind HUD for iOS.
 
-<img src="flat.gif" width="150" height="150"> <img src="native.gif" width="150" height="150">
+![sample](Screenshot/flat.gif)
+![sample](Screenshot/native.gif)
+
 
 ## Requirements
 
 - Runs on iOS 9.0 and later
+- Requires Swift 4.0  and ARC.
 
 ## Installation
 
