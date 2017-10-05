@@ -125,6 +125,7 @@ open class NDHUD {
             HUD.shared.hudView.stopAnimation()
             HUD.shared.hudView.removeFromSuperview()
             HUD.shared.backgroundView.removeFromSuperview()
+            HUD.shared.hudView.stopAnimation()
         }
     }
 }

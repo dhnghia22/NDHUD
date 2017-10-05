@@ -174,10 +174,7 @@ class HUDView: UIView {
     }
     
     func stopAnimation() {
-        shapeLayer.removeAnimation(forKey: "groupLoadingNativeAnimation")
-        shapeLayer.removeAnimation(forKey: "groupLoadingFlatAnimation")
-        shapeLayer.mask?.removeAnimation(forKey: "flatAnimation")
-        
+        shapeLayer.removeAllAnimations()
     }
     
     func getHUDPath(style hudStyle: HUDStyle) -> UIBezierPath {
