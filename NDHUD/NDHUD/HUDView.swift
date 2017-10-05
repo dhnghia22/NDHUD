@@ -38,9 +38,14 @@ open class HUDView: UIView {
     }
     
     fileprivate func customInit() {
-        Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
-        self.addSubview(contentView)
+        
+//        let bundle = Bundle(for: self.classForCoder)
+//        contentView = bundle.loadNibNamed(String(describing: type(of: self), owner: nil, options: nil))?.first
+        let bundle = Bundle(for: HUDView.self)
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
+        contentView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         contentView.frame = self.frame
+        self.addSubview(contentView)
         setupHUD()
     }
     
