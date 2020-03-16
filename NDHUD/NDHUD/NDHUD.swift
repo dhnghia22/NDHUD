@@ -22,37 +22,37 @@ class HUD {
 open class NDHUD {
     static let shared: NDHUD = NDHUD()
     
-    open static var color: UIColor? {
+    public static var color: UIColor? {
         didSet {
             HUD.shared.hudView.shapeLayer.strokeColor = color!.cgColor
         }
     }
     
-    open static var lineWidth: CGFloat? {
+    public static var lineWidth: CGFloat? {
         didSet {
             HUD.shared.hudView.shapeLayer.lineWidth = lineWidth!
         }
     }
     
-    open static var cornerRadius: CGFloat? {
+    public static var cornerRadius: CGFloat? {
         didSet {
             HUD.shared.hudView.layer.cornerRadius = cornerRadius!
         }
     }
     
-    open static var backgroundHUDColor: UIColor? {
+    public static var backgroundHUDColor: UIColor? {
         didSet {
             HUD.shared.hudView.contentView.backgroundColor = backgroundHUDColor!
         }
     }
     
-    open static var backgroundColor: UIColor? {
+    public static var backgroundColor: UIColor? {
         didSet {
             HUD.shared.backgroundView.backgroundColor = backgroundColor!
         }
     }
     
-    open static var styleHUD: HUDStyle? {
+    public static var styleHUD: HUDStyle? {
         didSet {
             HUD.shared.hudView.HUDStyle = styleHUD!
             HUD.shared.hudView.updatePath()

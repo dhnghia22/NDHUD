@@ -55,7 +55,7 @@ open class HUDView: UIView {
 //        contentView = bundle.loadNibNamed(String(describing: type(of: self), owner: nil, options: nil))?.first
         let bundle = Bundle(for: HUDView.self)
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        contentView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        contentView = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
         contentView.frame = self.frame
         self.addSubview(contentView)
         setupHUD()
@@ -67,23 +67,23 @@ open class HUDView: UIView {
         animationStrokeEnd.fromValue = 0.0
         animationStrokeEnd.byValue = 1.0
         animationStrokeEnd.duration = 1.45
-        animationStrokeEnd.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        animationStrokeEnd.fillMode = kCAFillModeForwards
+        animationStrokeEnd.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        animationStrokeEnd.fillMode = CAMediaTimingFillMode.forwards
         animationStrokeEnd.isRemovedOnCompletion = false
         
         let animationStrokeStart = CABasicAnimation(keyPath: "strokeStart")
         animationStrokeStart.fromValue = 0.0
         animationStrokeStart.byValue = 1.0
         animationStrokeStart.duration = 1.75
-        animationStrokeStart.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        animationStrokeStart.fillMode = kCAFillModeBackwards
+        animationStrokeStart.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+        animationStrokeStart.fillMode = CAMediaTimingFillMode.backwards
         animationStrokeStart.isRemovedOnCompletion = false
         
         let animationGroup = CAAnimationGroup()
         animationGroup.duration = 1.75
         animationGroup.repeatCount = .infinity
         animationGroup.isRemovedOnCompletion = false
-        animationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animationGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animationGroup.animations = [animationStrokeStart, animationStrokeEnd]
         return animationGroup
     }()
@@ -91,7 +91,7 @@ open class HUDView: UIView {
     
     let flatAnimation: CABasicAnimation = {
         let animationDuration = 1.0
-        let linearCurve = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        let linearCurve = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         animation.fromValue = 0
         animation.toValue = Double.pi * 2
@@ -99,7 +99,7 @@ open class HUDView: UIView {
         animation.timingFunction = linearCurve
         animation.isRemovedOnCompletion = false
         animation.repeatCount = .infinity
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.autoreverses = false
         return animation
     }()
@@ -107,7 +107,7 @@ open class HUDView: UIView {
     
     let rotateAnimation: CABasicAnimation = {
         let animationDuration = 2.0
-        let linearCurve = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        let linearCurve = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         animation.fromValue = 0
         animation.toValue = Double.pi * 2
@@ -115,7 +115,7 @@ open class HUDView: UIView {
         animation.timingFunction = linearCurve
         animation.isRemovedOnCompletion = false
         animation.repeatCount = .infinity
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.autoreverses = false
         return animation
     }()
@@ -136,7 +136,7 @@ open class HUDView: UIView {
         animationGroup.duration = 1.0
         animationGroup.repeatCount = .infinity
         animationGroup.isRemovedOnCompletion = false
-        animationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animationGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animationGroup.animations = [animationStrokeStart, animationStrokeEnd]
         return animationGroup
     }()
@@ -161,7 +161,7 @@ open class HUDView: UIView {
         shapeLayer.strokeColor = HUDColor.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = HUDLineWidth
-        shapeLayer.lineCap = kCALineCapRound
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
         self.updateMaskLayer()
         self.layer.addSublayer(shapeLayer)
         
