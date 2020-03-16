@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios
   s.ios.deployment_target = '11.0'
+  s.swift_version = "5.0" 
   s.source_files = 'NDHUD/NDHUD/*.swift'
   s.resources    =  ['NDHUD/NDHUD/NDHUD.bundle', 'NDHUD/NDHUD/*.{xib}']
 
